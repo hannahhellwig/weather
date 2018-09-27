@@ -39,6 +39,7 @@
     float:left;
     text-align: center;
     font-size: 24px;
+    color: orange;
   }
 
 
@@ -50,7 +51,8 @@
     <div id="cityName"></div>
     <div id="temperature"></div>
     <div id="typeOfWeather"></div>
-
+    <div id="sunrise"></div>
+    <div id="sunset"></div>
 <script>
     fetch("http://api.openweathermap.org/data/2.5/weather?q=Stockholm,Sweden&units=metric&APPID=54529acc6be4724ee1adaa4dd5a1118b")
     .then((response) => {
@@ -61,7 +63,8 @@
       document.getElementById("cityName").innerHTML = data.name
       document.getElementById("temperature").innerHTML = data.main.temp.toFixed(1) + "°"
       document.getElementById("typeOfWeather").innerHTML = data.weather[0].main
-
+      document.getElementById("sunrise").innerHTML = "Sunrise " + data.sys.sunrise
+        document.getElementById("sunset").innerHTML = "Sunset " + data.sys.sunset
 
       const changeBackground = (weather) => {
         if (weather === "Clear") {
