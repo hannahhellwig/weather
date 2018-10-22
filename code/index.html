@@ -2,6 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="shortcut icon" type="x-icon" href="weathericon.png" />
+     <title>Weather in Stockholm</title>
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
     <title></title>
 <style>
@@ -11,35 +13,32 @@
   }
 
   body {
-    /* background-image: url('clearsky2.jpg'); */
     background-repeat: no-repeat;
     background-size:cover;
     background-position:center;
     font-family: 'Comfortaa', cursive;
-
-
   }
 
   h1 {
     margin-top: 100px;
     text-align: center;
-    font-size: 36px;
+    font-size: 42px;
   }
 
   #cityName {
     text-align: center;
     font-size: 36px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    color:orange;
+    margin-top: 160px;
+    margin-bottom: 40px;
+    color:#F5A431;
   }
 
   #temperature, #typeOfWeather {
     width: 50%;
     float:left;
     text-align: center;
-    font-size: 24px;
-    color: orange;
+    font-size: 36px;
+    color: #F5A431;
   }
 
 
@@ -47,8 +46,7 @@
 
   </head>
   <body>
-    <h1>Today's weather in</h1>
-    <div id="cityName"></div>
+    <h1 id="cityName"></h1>
     <div id="temperature"></div>
     <div id="typeOfWeather"></div>
     <div id="sunrise"></div>
@@ -63,13 +61,12 @@
       document.getElementById("cityName").innerHTML = data.name
       document.getElementById("temperature").innerHTML = data.main.temp.toFixed(1) + "°"
       document.getElementById("typeOfWeather").innerHTML = data.weather[0].main
-      document.getElementById("sunrise").innerHTML = "Sunrise " + data.sys.sunrise
-        document.getElementById("sunset").innerHTML = "Sunset " + data.sys.sunset
+      // document.getElementById("sunrise").innerHTML = "Sunrise " + data.sys.sunrise
+      // document.getElementById("sunset").innerHTML = "Sunset " + data.sys.sunset
 
       const changeBackground = (weather) => {
         if (weather === "Clear") {
           document.body.style.backgroundImage = "url('clearsky.jpg')"
-          // document.body.style.backgroundColor = "lightblue"
         } else if (weather === "Clouds" ){
           document.body.style.backgroundImage = "url('greyclouds.jpg')"
         } else if (weather === "Rain" ){
